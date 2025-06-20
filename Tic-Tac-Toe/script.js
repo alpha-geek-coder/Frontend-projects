@@ -161,18 +161,18 @@ function ScreenController() {
   // Add event handler for the board
   function clickHandlerBoard(e) {
     const selectedColumn = e.target.dataset.cellNumber;
+      const currentPlayer = game.getActivePlayer().name;
+      // Make sure the user clicked a column and no the gaps in between
+      if (!selectedColumn) return;
+      const result = game.playRound(selectedColumn);
 
-    // Make sure the user clicked a column and no the gaps in between
-    if (!selectedColumn) return;
-    const result = game.playRound(selectedColumn);
+      // Render selection on screen
+      updateScreen();
 
-    // Render selection on screen
-    updateScreen();
-
-    if (result) {
-      winMsg.textContent = `${game.getActivePlayer().name} WINS!!! 🏆🏆🏆`;
-      dialog.showModal();
-    }
+      if (result) {
+        winMsg.textContent = `${currentPlayer} WINS!!! 🏆🏆🏆`;
+        dialog.showModal();
+      }
   }
 
   boardDiv.addEventListener("click", clickHandlerBoard);
