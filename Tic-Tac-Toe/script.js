@@ -27,7 +27,16 @@ function GameBoard() {
     console.log(boardWithCellValues);
   };
 
-  return { getBoard, placeToken, printBoard };
+  const resetBoard = () => {
+    for (let row = 0; row < boardSize; row++) {
+      board[row] = [];
+      for (let col = 0; col < boardSize; col++) {
+        board[row][col] = Cell();
+      }
+    }
+  };
+
+  return { getBoard, placeToken, printBoard, resetBoard };
 }
 
 function Cell() {
@@ -119,9 +128,25 @@ function GameController(playerOne = "Player One", playerTwo = "Player Two") {
     return result;
   };
 
+  const resetGame = () => {
+    gameBoard.resetBoard();
+    activePlayer = players[0];
+  };
+  return {
+    getActivePlayer,
+    playRound,
+    getBoard: gameBoard.getBoard,
+    resetGame,
+  };
+
   printNewRound();
 
-  return { getActivePlayer, playRound, getBoard: gameBoard.getBoard };
+  return {
+    getActivePlayer,
+    playRound,
+    getBoard: gameBoard.getBoard,
+    resetGame,
+  };
 }
 
 function ScreenController() {
@@ -161,28 +186,28 @@ function ScreenController() {
   // Add event handler for the board
   function clickHandlerBoard(e) {
     const selectedColumn = e.target.dataset.cellNumber;
-      const currentPlayer = game.getActivePlayer().name;
-      // Make sure the user clicked a column and no the gaps in between
-      if (!selectedColumn) return;
-      const result = game.playRound(selectedColumn);
+    const currentPlayer = game.getActivePlayer().name;
+    // Make sure the user clicked a column and no the gaps in between
+    if (!selectedColumn) return;
+    const result = game.playRound(selectedColumn);
 
-      // Render selection on screen
-      updateScreen();
+    // Render selection on screen
+    updateScreen();
 
-      if (result) {
-        winMsg.textContent = `${currentPlayer} WINS!!! 🏆🏆🏆`;
-        dialog.showModal();
-      }
+    if (result) {
+      winMsg.textContent = `${currentPlayer} WINS!!! 🏆🏆🏆`;
+      dialog.showModal();
+    }
   }
 
   boardDiv.addEventListener("click", clickHandlerBoard);
 
   // Add event handler for new game
   function newGameHandler(e) {
-      e.preventDefault();
-      ScreenController();
+    e.preventDefault();
+    game.resetGame();
+    updateScreen();
     dialog.close();
-    
   }
 
   newGameButton.addEventListener("click", newGameHandler);
