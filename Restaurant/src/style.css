@@ -1,0 +1,67 @@
+body {
+    display: grid;
+    grid-template-rows: minmax(160px, 1fr) 5fr 50px ;
+    gap:5px;
+}
+header{
+    background-image: url('./header-logo.png');
+}
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: skyblue;
+}
+.logo {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    font:
+      bold calc(1em + 2 * (100vw - 120px) / 100) "Dancing Script",
+      fantasy;
+    color: white;
+    letter-spacing: 2px;;
+    text-shadow: #000 2px 2px 0.2rem;
+}
+
+/* #content {
+    background-image: url('./homepage-background.jpg');
+    background-size: cover;
+} */
+
+h2, h3, p, th, td, caption {
+    color: black;
+}
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.main-content {
+    width: 80vw;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+.menu-image, .about-image {
+    width: 100%;      /* Image fills the width of its container */
+    height: auto;     /* Height adjusts to keep aspect ratio */
+    display: block;   /* Removes inline gap below images */
+    max-width: 600px; /* Optional: set a max width */
+    margin: 10px auto;   /* Optional: center image if container is wider */
+  }
+
+.btn {
+    width: 150px;
+    height: 50px;
+    text-shadow: #000 2px 2px 0.2rem;
+    font:
+      bold calc(1em + (100vw - 120px) / 100) "Dancing Script",
+      fantasy;
+}
