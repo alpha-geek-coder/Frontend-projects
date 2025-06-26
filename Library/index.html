@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Maps&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script rel="script" src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="main-page">
+      <!-- header section -->
+      <div class="header">
+        <img src="./img/logo.png" alt="logo-image">
+        <div class="logo">My Library</div>
+      </div>
+      <!-- Nav sidebar -->
+      <div class="sidebar">
+          <div class="nav-section">
+            <div class="nav-title">Actions</div>
+            <div class="nav-item" onclick="showSection('add-book')">
+              <span class="nav-icon">➕</span>
+              Add New Book
+            </div>
+          </div>
+          <div class="nav-section">
+            <div class="nav-title">Browse</div>
+            <div class="nav-item" onclick="showSection('all-books')">
+              <span class="nav-icon">📖</span>
+              All Books
+            </div>
+            <div class="nav-item" onclick="showSection('unread-books')">
+              <span class="nav-icon">📚</span>
+              All Books
+            </div>
+            <div class="nav-item" onclick="showSection('read-books')">
+              <span class="nav-icon">✅</span>
+              Read Books
+            </div>
+          </div>
+          <div class="nav-section">
+            <div class="nav-title">Search</div>
+            <div class="nav-item" onclick="showSection('search-books')">
+              <span class="nav-icon">🔍</span>
+              Search Books
+            </div>
+          </div>
+      </div>
+      <!-- Main section -->
+      <div class="main-content">
+        <div class="search-book-section">
+            <dialog id="search-book-dialog">
+              <h2 class="modal-title">Search Book</h2>
+              <form action="#" method="dialog" is="search-book-form">
+                <div id="search-error" class="error-message" style="color: red; margin-bottom: 10px;"></div>
+                <div class="form-group">
+                  <label for="bookTitle">Book Title</label>
+                  <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter book title" autocomplete="off" autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="bookAuthor">Author</label>
+                  <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter author name" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <label for="publishDate">Published Date</label>
+                  <input type="date" id="publishDate" name="publishDate">
+                </div>
+                <button class="btn btn-primary" type="submit">
+                  <span class="btn-icon">🔍</span>
+                  Search
+                </button>
+                <button type="reset" class="btn btn-secondary">
+                  <span class="btn-icon">⭕️</span>
+                  Reset
+                </button>
+                <button type="button" class="btn btn-cancel" data-form="add-book">
+                  <span class="btn-icon">❌</span>
+                  Close
+                </button>
+              </form>
+            </dialog>
+          </div>
+          
+          <div class="add-book-section">
+            <dialog id="add-book-dialog">
+              <h2 class="modal-title">Add Book</h2>
+              <form action="#" method="dialog" id="add-book-form">
+                <div id="add-book-error" class="error-message" style="color: red; margin-bottom: 10px;"></div>
+                <div class="form-group">
+                  <label for="addBookTitle">Book Title</label>
+                  <input type="text" id="addBookTitle" name="bookTitle" placeholder="Enter book title" required autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="addBookAuthor">Author</label>
+                  <input type="text" id="addBookAuthor" name="bookAuthor" placeholder="Enter author name" required>
+                </div>
+                <div class="form-group">
+                  <label for="addPublishDate">Published Date</label>
+                  <input type="date" id="addPublishDate" name="publishDate" required>
+                </div>
+                <div class="form-group">
+                  <label for="addBookImage">Cover Page</label>
+                  <input type="file" id="addBookImage" name="bookImage" accept="image/*">
+                </div>
+                <button class="btn btn-primary" type="submit">
+                  <span>➕</span>
+                  Add Book to Catalog
+                </button>
+                <button type="button" class="btn btn-cancel" data-form="search-book">
+                    <span class="btn-icon">❌</span>
+                  Cancel
+                </button>
+              </form>
+            </dialog>
+          </div>
+          
+
+          <div class="books-grid">
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="cover.jpg" alt="Cover of The Great Gatsby">
+                </div>
+                <h3 class="book-title">The Great Gatsby</h3>
+                <p class="book-author">by F. Scott Fitzgerald</p>
+                <p class="book-date">Published: 1925</p>
+                <div class="book-status status-read">Read</div>
+                <div class="book-actions">
+                    <button class="btn btn-secondary btn-small" aria-label="Mark as unread">📖 Mark Unread</button>
+                    <button class="btn btn-danger btn-small" aria-label="Remove book">🗑️ Remove</button>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="cover.jpg" alt="Cover of To Kill a Mockingbird">
+                </div>
+                <h3 class="book-title">To Kill a Mockingbird</h3>
+                <p class="book-author">by Harper Lee</p>
+                <p class="book-date">Published: 1960</p>
+                <div class="book-status status-unread">Unread</div>
+                <div class="book-actions">
+                    <button class="btn btn-secondary btn-small" aria-label="Mark as Read">✅ Mark Read</button>
+                    <button class="btn btn-danger btn-small" aria-label="Remove book">🗑️ Remove</button>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="cover.jpg" alt="Cover of 1984">
+                </div>
+                <h3 class="book-title">1984</h3>
+                <p class="book-author">by George Orwell</p>
+                <p class="book-date">Published: 1949</p>
+                <div class="book-status status-unread">Unread</div>
+                <div class="book-actions">
+                    <button class="btn btn-secondary btn-small" aria-label="Mark as Read">✅ Mark Read</button>
+                    <button class="btn btn-danger btn-small" aria-label="Remove book">🗑️ Remove</button>
+                </div>
+            </div>
+            
+          </div>
+      </div>
+      <!-- footer section -->
+      <div class="footer">
+        <div class="footer-text">Copyright MyLibrary 2025</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+/* Page dimensions */
+.main-page {
+    display: grid;
+    gap: 5px;
+    padding: 4px;
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: minmax(100px, 5%) 5fr minmax(50px, 5%) ;
+}
+
+.header {
+    grid-row: 1;
+    grid-column: 1 / 3;
+    background-color:beige;
+    display: flex;    /* optional: helps center the image */
+    padding: 5px;
+    gap: 50px;
+    background: url('./img/library.jpg') 0.5%;
+    background-size: cover;
+}
+
+.sidebar {
+    grid-row: 2;
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: skyblue;
+}
+
+.main-content {
+    background-color: white;
+    padding: 10px;
+}
+
+.footer {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+}
+
+/* Header section styling */
+
+
+.header img {
+
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* or 'cover' as needed */
+}
+
+.header .logo {
+
+    font-family: 'Rubik Maps', system-ui ;
+    font-weight: 300;
+    font-size: clamp(16px, 5vw, 100px);       /* Responsive font size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    color:ivory
+    
+}
+
+/* Sidebar styling */
+.nav-section {
+    padding: 10px;
+}
+
+.nav-title {
+    text-transform: uppercase;
+    color:grey;
+    padding: 10px 0;
+}
+
+.nav-item {
+    padding: 5px;;
+}
+
+.nav-item:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    font-weight:600;
+}
+
+/* Add Book and Search Books dialog styling */
+dialog {
+    /* Center and horizontally positioned */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    padding: 2rem;
+    margin-bottom: 5px;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .add-book-section form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem ;
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 8px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    margin-bottom: 5px;
+}
+  
+
+.form-group  label, .form-group  input {
+    margin-left: 5px;
+}
+
+input[type="text"] {
+    border: 1px solid black; 
+    font-size: 1rem;           /* optional: for readability */
+}
+  .add-book-section input:focus {
+    border-color: #007bff; /* or your theme color */
+    outline: none;
+  }
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+
+/* Main-content styling */
+
+/* grid container */
+.books-grid {
+   
+    display: grid;
+    padding: 4px;
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    
+}
+
+/* grid items */
+.book-card {
+    border: 1px solid grey;
+    background-color: skyblue;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.book-image img {
+    width: 100%;
+    height: auto;
+    max-width: 30px;
+    max-height: 30px;
+  }
+
+
