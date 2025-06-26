@@ -1,4 +1,4 @@
-import aboutImg from "./about.png";
+import aboutImg from "./about-image.png";
 export function showAbout() {
   const mainContent = document.querySelector(".main-content");
   if (!mainContent) return;

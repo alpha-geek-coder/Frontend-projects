@@ -1,5 +1,5 @@
 import "./style.css";
-import homepageImg from "./homepage-background.jpg";
+import homepageImg from "./homepage-background-image.jpg";
 
 import { showHome } from './showHome';
 import { showMenu } from "./showMenu";
@@ -33,3 +33,5 @@ document.addEventListener("DOMContentLoaded", () => {
   common();
   showHome();
 }); // landing page
+
+

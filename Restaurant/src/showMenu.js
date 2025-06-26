@@ -1,4 +1,4 @@
-import menuImg from "./menu.png";
+import menuImg from "./menu-image.png";
 
 export function showMenu() {
   const mainContent = document.querySelector(".main-content");
