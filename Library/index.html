@@ -28,15 +28,15 @@
           </div>
           <div class="nav-section">
             <div class="nav-title">Browse</div>
-            <div class="nav-item" onclick="showSection('all-books')">
+            <div class="nav-item" id="show-all">
               <span class="nav-icon">📖</span>
               All Books
             </div>
-            <div class="nav-item" onclick="showSection('unread-books')">
+            <div class="nav-item" id="show-unread">
               <span class="nav-icon">📚</span>
-              All Books
+              Unread Books
             </div>
-            <div class="nav-item" onclick="showSection('read-books')">
+            <div class="nav-item" id="show-read">
               <span class="nav-icon">✅</span>
               Read Books
             </div>
@@ -54,7 +54,7 @@
         <div class="search-book-section">
             <dialog id="search-book-dialog">
               <h2 class="modal-title">Search Book</h2>
-              <form action="#" method="dialog" is="search-book-form">
+              <form action="#" method="dialog" id="search-book-form">
                 <div id="search-error" class="error-message" style="color: red; margin-bottom: 10px;"></div>
                 <div class="form-group">
                   <label for="bookTitle">Book Title</label>
@@ -65,18 +65,18 @@
                   <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter author name" autocomplete="off">
                 </div>
                 <div class="form-group">
-                  <label for="publishDate">Published Date</label>
-                  <input type="date" id="publishDate" name="publishDate">
+                  <label for="publishYear">Published Year</label>
+                  <input type="number" id="publishYear" name="publishYear" min="1000" max="9999" step="1" placeholder="YYYY">
                 </div>
-                <button class="btn btn-primary" type="submit">
+                <button class="btn btn-search-book" type="submit">
                   <span class="btn-icon">🔍</span>
                   Search
                 </button>
-                <button type="reset" class="btn btn-secondary">
+                <button type="reset" class="btn btn-reset">
                   <span class="btn-icon">⭕️</span>
                   Reset
                 </button>
-                <button type="button" class="btn btn-cancel" data-form="add-book">
+                <button type="button" class="btn btn-cancel" data-form="search-book">
                   <span class="btn-icon">❌</span>
                   Close
                 </button>
@@ -98,18 +98,18 @@
                   <input type="text" id="addBookAuthor" name="bookAuthor" placeholder="Enter author name" required>
                 </div>
                 <div class="form-group">
-                  <label for="addPublishDate">Published Date</label>
-                  <input type="date" id="addPublishDate" name="publishDate" required>
+                  <label for="addPublishYear">Published Year</label>
+                  <input type="number" id="addPublishYearte" name="publishYear" min="1000" max="9999" step="1" placeholder="YYYY" required>
                 </div>
                 <div class="form-group">
                   <label for="addBookImage">Cover Page</label>
                   <input type="file" id="addBookImage" name="bookImage" accept="image/*">
                 </div>
-                <button class="btn btn-primary" type="submit">
+                <button class="btn btn-add-book" type="submit">
                   <span>➕</span>
                   Add Book to Catalog
                 </button>
-                <button type="button" class="btn btn-cancel" data-form="search-book">
+                <button type="button" class="btn btn-cancel" data-form="add-book">
                     <span class="btn-icon">❌</span>
                   Cancel
                 </button>

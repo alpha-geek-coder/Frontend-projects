@@ -182,4 +182,11 @@ input[type="text"] {
     max-height: 30px;
   }
 
-
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+    display: none;
+  }
+  .display-error {
+    display: block;
+  }
