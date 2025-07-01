@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Carousel</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script rel="script" src="./index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Image Carousel</h1>
+    </header>
+    <main>
+        <div class="dropdown">
+          <button class="dropdown-button" aria-label="Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <div id="dropdown-menu" class="dropdown-content">
+            <a href="#" class="open-carousel">Open Carousel</a>
+            <a href="#" class="hide-carousel">Hide Carousel</a>
+          </div>
+        </div>
+      
+        <!-- Carousel is outside the dropdown, in main content -->
+        <div id="carousel-container" style="display: none">
+          <div class="carousel">
+            <div class="carousel-inner">
+              <!-- Images will be loaded here from script -->
+            </div>
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+      </main>
+    <footer>
+      <p>&copy; 2025 My Image Carousel</p>
+    </footer>
+  </body>
+</html>
